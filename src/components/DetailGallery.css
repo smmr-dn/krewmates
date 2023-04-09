@@ -1,0 +1,14 @@
+.action-button {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.edit-btn {
+  color: rgb(41, 137, 41);
+}
+
+.delete-btn {
+  color: lightsalmon;
+}

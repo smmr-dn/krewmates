@@ -1,0 +1,43 @@
+.create-member-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choose-profile-pic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+  row-gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  border: 2px dashed rgb(100, 100, 255);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+img#profile-options {
+  width: 100px;
+  transition: all 0.3s;
+  opacity: 0.9;
+  border-radius: 50%;
+}
+img#profile-options:hover {
+  transform: translateY(-7px);
+}
+img#profile-options:active {
+  transform: scale(0.8);
+}
+
+img#profile-options:focus {
+  outline: 2px dashed rgb(100, 100, 255);
+  outline-offset: 2px;
+  transform: scale(0.9);
+  background-color: rgb(205, 225, 243);
+}
+
+textarea,
+input[type="text"],
+input[type="number"] {
+  font-family: inherit;
+}

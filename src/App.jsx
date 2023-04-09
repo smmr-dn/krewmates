@@ -5,7 +5,7 @@ import CreateMember from "./components/CreateMember";
 function App() {
   return (
     <div className="App">
-      <CreateMember />
+      <h1>Welcome to Krewmates</h1>
     </div>
   );
 }

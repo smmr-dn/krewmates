@@ -1,15 +1,26 @@
 import { React, useEffect, useState } from "react";
 import "./CreateMember.css";
 import { supabase } from "../client";
+import { useParams } from "react-router-dom";
 
-const CreateMember = () => {
-  const [newMember, setNewMember] = useState({});
+const EditMember = () => {
+  const params = useParams();
+  const [currentMember, setCurrentMember] = useState({});
+  const [updateMember, setUpdateMember] = useState({});
   const [profilePicOptions, setProfilePic] = useState([]);
   const [profilePicChosen, setPicChosen] = useState("");
 
   const CDNURL =
     "https://rytdskphxetsvafbgjxi.supabase.co/storage/v1/object/public/profile-pic/";
 
+  useEffect(() => {
+    const getCurrentMember = async () => {
+      const { data } = await supabase.from("Crew").select().eq("id", params.id);
+      setCurrentMember(data[0]);
+      console.log(data);
+    };
+    getCurrentMember();
+  }, [params]);
   useEffect(() => {
     const getProfilePic = async () => {
       const { data, error } = await supabase.storage
@@ -23,7 +34,7 @@ const CreateMember = () => {
 
   const onValueChange = (event) => {
     const { name, value } = event.target;
-    setNewMember((prevState) => ({
+    setUpdateMember((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -38,41 +49,42 @@ const CreateMember = () => {
 
     await supabase
       .from("Crew")
-      .insert({
-        name: newMember.name,
-        age: newMember.age,
-        ranking: newMember.ranking,
+      .update({
+        name: updateMember.name,
+        age: updateMember.age,
+        ranking: updateMember.ranking,
         profilePic: profilePicChosen,
-        bio: newMember.bio,
+        bio: updateMember.bio,
       })
-      .select();
+      .eq("id", params.id);
 
-    window.location = "/";
+    window.location = "/gallery";
   };
 
   return (
     <div>
-      <h1>Add New Krewmate</h1>
+      <h1>Update Krewmate</h1>
+      <img id="gallery-profile-pic" src={currentMember.profilePic} />
       <form className="create-member-container" onSubmit={onSubmit}>
         <input
           type="text"
           id="name"
           name="name"
-          placeholder="Name"
+          placeholder={currentMember.name}
           onChange={onValueChange}
         />
         <input
           type="text"
           id="age"
           name="age"
-          placeholder="Age"
+          placeholder={currentMember.age}
           onChange={onValueChange}
         />
         <input
           type="number"
           id="ranking"
           name="ranking"
-          placeholder="Ranking"
+          placeholder={currentMember.ranking}
           onChange={onValueChange}
         ></input>
         <textarea
@@ -80,12 +92,12 @@ const CreateMember = () => {
           id="bio"
           cols="30"
           rows="10"
-          placeholder="Tell us about you"
+          placeholder={currentMember.bio}
           onChange={onValueChange}
         ></textarea>
         <br />
         <div className="pic-container">
-          <h2>Choose a profile picture</h2>
+          <h2>Choose a new profile picture</h2>
           <div className="choose-profile-pic">
             {profilePicOptions &&
               profilePicOptions.map((option) => (
@@ -106,4 +118,4 @@ const CreateMember = () => {
   );
 };
 
-export default CreateMember;
+export default EditMember;
