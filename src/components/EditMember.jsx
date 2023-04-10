@@ -91,7 +91,7 @@ const EditMember = () => {
           name="bio"
           id="bio"
           cols="30"
-          rows="10"
+          rows="5"
           placeholder={currentMember.bio}
           onChange={onValueChange}
         ></textarea>
@@ -112,7 +112,9 @@ const EditMember = () => {
               ))}
           </div>
         </div>
-        <button type="submit">Submit</button>
+        <button id="submit-btn" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

@@ -40,4 +40,44 @@ textarea,
 input[type="text"],
 input[type="number"] {
   font-family: inherit;
+  padding: 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  outline: none;
+  color: #134a6f;
+}
+
+textarea:hover,
+input[type="text"]:hover,
+input[type="number"]:hover,
+textarea:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:active,
+input[type="text"]:active,
+input[type="number"]:active {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: 0.3s;
+  border: 2px solid #134a6f;
+}
+
+button#submit-btn {
+  border-radius: 8px;
+  border: 2px solid whitesmoke;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  color: #134a6f;
+  transition: border-color 0.25s;
+}
+
+button#submit-btn:hover {
+  background-color: #134a6f;
+  color: white;
 }

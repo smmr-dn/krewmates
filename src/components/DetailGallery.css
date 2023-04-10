@@ -1,3 +1,16 @@
+.member-info {
+  background-color: #1c567d;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+span#tag {
+  color: #2980b9;
+  background-color: white;
+  padding: 5px;
+}
+
 .action-button {
   width: 100%;
   display: flex;
@@ -5,10 +18,36 @@
   justify-content: center;
 }
 
-.edit-btn {
+.edit-btn a {
   color: rgb(41, 137, 41);
+}
+
+.edit-btn:hover {
+  background-color: rgb(41, 137, 41);
+  color: white;
+}
+
+.edit-btn a:hover {
+  color: white;
 }
 
 .delete-btn {
   color: lightsalmon;
+}
+
+.delete-btn:hover {
+  background-color: lightsalmon;
+  color: white;
+}
+
+.action-button button {
+  border-radius: 8px;
+  border: 2px solid whitesmoke;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }

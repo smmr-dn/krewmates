@@ -18,7 +18,7 @@ const Layout = () => {
             </li>
             <li>
               <Link to="/">
-                <img src="./public/gamer.png" />
+                <img id="logo-image" src="../src/img/gamer.png" />
               </Link>
             </li>
           </ul>

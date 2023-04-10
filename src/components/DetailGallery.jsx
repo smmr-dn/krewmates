@@ -31,11 +31,17 @@ const DetailGallery = () => {
       <h1>Detail Gallery</h1>
       {memberInfo && (
         <div>
-          <h3>{memberInfo.name}</h3>
+          <h2>{memberInfo.name}</h2>
           <img id="gallery-profile-pic" src={memberInfo.profilePic} />
-          <h4>Age {memberInfo.age}</h4>
-          <h4>Ranking {memberInfo.ranking}</h4>
-          <p>{memberInfo.bio}</p>
+          <div className="member-info">
+            <h4>
+              Age <span id="tag">{memberInfo.age}</span>
+            </h4>
+            <h4>
+              Ranking <span id="tag">{memberInfo.ranking}</span>
+            </h4>
+            <p>{memberInfo.bio}</p>
+          </div>
 
           <div className="action-button">
             <button className="delete-btn" onClick={onDeleteMember}>

@@ -79,7 +79,7 @@ const CreateMember = () => {
           name="bio"
           id="bio"
           cols="30"
-          rows="10"
+          rows="5"
           placeholder="Tell us about you"
           onChange={onValueChange}
         ></textarea>
@@ -100,7 +100,9 @@ const CreateMember = () => {
               ))}
           </div>
         </div>
-        <button type="submit">Submit</button>
+        <button id="submit-btn" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
