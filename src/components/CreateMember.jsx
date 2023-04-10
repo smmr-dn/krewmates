@@ -47,7 +47,7 @@ const CreateMember = () => {
       })
       .select();
 
-    window.location = "/";
+    window.location = "/gallery";
   };
 
   return (

@@ -17,16 +17,46 @@ nav {
   width: 100%;
 }
 
-a {
+ul.navbar-scroll li a,
+ul.navbar-middle-scroll li a {
   text-decoration: none;
+  color: white;
+}
+
+ul.navbar-scroll li a:hover,
+ul.navbar-middle-scroll li a:hover {
+  text-decoration: none;
+  color: rgba(128, 128, 128, 0.5);
 }
 
 ul {
   list-style: none;
+  display: flex;
+  float: left;
+  gap: 20px;
+  align-items: center;
+  font-size: 17px;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  transition: 0.2s;
 }
 
-li {
-  float: right;
+ul.navbar-scroll {
+  background-color: #134a6f3b;
+}
+
+ul.navbar-middle-scroll {
+  background-color: #134a6fbc;
+  transition: 0.4s;
+}
+
+ul.navbar-transparent {
+  background-color: transparent;
+}
+
+li a:hover {
+  color: rgb(100, 100, 255);
 }
 
 /*Gallery*/
